@@ -1,8 +1,8 @@
 DATABASE_CONFIG = {
     'host' : 'localhost',
     'user' : 'root',
-    'password' : 'a2205',
-    'database' : 'event_tracker'
+    'password' : 'root',
+    'database' : 'a6'
 }
 
 debug = True
