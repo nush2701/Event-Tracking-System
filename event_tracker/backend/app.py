@@ -27,7 +27,7 @@ def test():
     except Exception as e:
         return f"Error: {str(e)}"
 
-@app.route('/test_db/query')
+@app.route('/query')
 def executeQuery():
     return execute_query()
 
