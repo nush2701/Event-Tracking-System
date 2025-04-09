@@ -41,6 +41,16 @@ def get_all_events():
     
     cursor.execute("SELECT * FROM events")
     events = cursor.fetchall()
+    events = [
+        {
+            'id': row[0],
+            'name': row[1],
+            'date': row[2],
+            'location': row[3],
+            'description': row[4]
+        }
+        for row in events
+    ]
     
     cursor.close()
     connection.close()
