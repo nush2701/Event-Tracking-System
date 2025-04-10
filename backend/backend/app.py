@@ -1,18 +1,22 @@
 from flask import Flask,jsonify,request
 from db import get_db_connection,execute_query
-from models.event import event_table, insert_event, get_all_events
-from models.club import club_table, insert_club, get_all_clubs
-from models.user import user_table, insert_user, get_all_users
-from models.notification import create_notifications_table, insert_notification, get_notifications_for_user
-from models.user_events import create_user_events_table, register_user_for_event, get_user_events
-from models.user_clubs import create_user_clubs_table, add_user_to_club, get_user_clubs
+from models.event import event_table
+from models.club import club_table
+from models.user import user_table
+from models.notification import create_notifications_table
+from models.user_events import create_user_events_table
+from models.user_clubs import create_user_clubs_table
 from routes.events import events_bp
+from routes.clubs import clubs_bp
+from routes.notifications import notifications_bp
 from flask_cors import CORS 
-import pymysql
+import pymysql.cursors
 
 app = Flask(__name__)
 CORS(app)
 app.register_blueprint(events_bp)
+app.register_blueprint(clubs_bp)
+app.register_blueprint(notifications_bp)
 
 @app.route('/')
 def home():
@@ -31,25 +35,27 @@ def test():
     except Exception as e:
         return f"Error: {str(e)}"
 
-"""@app.route('/api/user-events', methods=['GET'])
+@app.route('/api/user-events', methods=['GET'])
 def get_user_events():
     user_id = request.args.get('user_id')
     if not user_id:
         return jsonify({"error": "User ID is required"}), 400
 
     try:
-        cursor = db.cursor(dictionary=True)
-        cursor.callproc('GetUserEvents', [int(user_id)])
+        db = get_db_connection()
+        cursor = db.cursor(cursor=pymysql.cursors.DictCursor)
 
-        for result in cursor.stored_results():
-            events = result.fetchall()
-        
+        cursor.callproc('GetUserEvents', [int(user_id)])
+        events = cursor.fetchall()  # Directly fetch here
+
         return jsonify(events)
     except Exception as e:
-        print(e)
-        return jsonify({"error": "Failed to fetch user events"}), 500
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
 
-@app.route('/query')
+
+"""@app.route('/query')
 def executeQuery():
     return execute_query()"""
 
