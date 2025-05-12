@@ -21,23 +21,6 @@ A full-stack web application that allows university students to explore, registe
 - **Backend**: Python + Flask + Flask Blueprints
 - **Database**: MySQL (with PL/SQL triggers, procedures)
 - **Other**: REST APIs, PyMySQL, Vite, CORS
-
----
-
-## 📂 Folder Structure
-
-├── frontend/
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ └── App.tsx
-├── backend/
-│ ├── routes/
-│ ├── models/
-│ ├── db.py
-│ └── app.py
-
-
 ---
 
 ## ⚙️ Setup Instructions
@@ -50,7 +33,41 @@ python -m venv venv
 source venv/bin/activate  # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
 python app.py
+```
 
 Make sure MySQL is running and database is created.
 
 Update db.py with your DB credentials.
+
+###💻 Frontend (React + Vite)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+###🧠 PL/SQL Concepts Demonstrated
+✅ Stored Procedure: Fetch user’s registered events
+
+✅ Trigger: Add notification when a new event is created for a subscribed club
+
+✅ Joins, Views, Foreign Keys, etc.
+
+###📌 Future Enhancements
+✅ Add login/signup with JWT
+
+✅ Admin panel for event & club management
+
+✅ Email or push notifications
+
+✅ Real-time updates via WebSockets or polling
+
+✅ Deployed version using Render + Vercel
+
+#👩‍💻 Author
+Anushka SIngh
+Student @ MIT WPU
+[GitHub Profile](https://github.com/nush2701)
+
+
+
+
