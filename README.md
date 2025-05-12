@@ -39,20 +39,20 @@ Make sure MySQL is running and database is created.
 
 Update db.py with your DB credentials.
 
-###💻 Frontend (React + Vite)
+### 💻 Frontend (React + Vite)
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
-###🧠 PL/SQL Concepts Demonstrated
+### 🧠 PL/SQL Concepts Demonstrated
 ✅ Stored Procedure: Fetch user’s registered events
 
 ✅ Trigger: Add notification when a new event is created for a subscribed club
 
 ✅ Joins, Views, Foreign Keys, etc.
 
-###📌 Future Enhancements
+### 📌 Future Enhancements
 ✅ Add login/signup with JWT
 
 ✅ Admin panel for event & club management
@@ -63,7 +63,7 @@ npm run dev
 
 ✅ Deployed version using Render + Vercel
 
-#👩‍💻 Author
+# 👩‍💻 Author
 Anushka SIngh
 Student @ MIT WPU
 [GitHub Profile](https://github.com/nush2701)
